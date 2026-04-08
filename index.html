@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dmytro Borysov | Cyberpunk Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #07040e;
+      --panel: rgba(13, 8, 24, 0.72);
+      --panel-2: rgba(20, 12, 34, 0.82);
+      --line: #2c1f47;
+      --text: #dae9ff;
+      --muted: #8aa2c8;
+      --neon-cyan: #00f6ff;
+      --neon-pink: #ff2dd1;
+      --neon-purple: #9b59ff;
+      --warning: #ffe066;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      color: var(--text);
+      font-family: "Share Tech Mono", monospace;
+      font-size: 20px;
+      line-height: 1.35;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(0, 246, 255, 0.1), transparent 35%),
+        radial-gradient(circle at 80% 0%, rgba(255, 45, 209, 0.14), transparent 30%),
+        linear-gradient(130deg, #06030b, #090413 45%, #07030f);
+      padding: 28px 20px 40px;
+    }
+
+    .noise::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.08;
+      background-image: repeating-linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.2) 0,
+        rgba(255, 255, 255, 0.2) 1px,
+        transparent 2px,
+        transparent 4px
+      );
+      mix-blend-mode: screen;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      border: 1px solid var(--line);
+      background: linear-gradient(160deg, var(--panel), var(--panel-2));
+      box-shadow:
+        0 0 0 1px rgba(0, 246, 255, 0.25),
+        0 0 0 4px rgba(7, 4, 14, 0.9),
+        0 0 32px rgba(155, 89, 255, 0.18);
+      overflow: hidden;
+    }
+
+    .topline {
+      height: 4px;
+      background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink), var(--neon-cyan));
+      box-shadow: 0 0 16px rgba(0, 246, 255, 0.65);
+    }
+
+    .header {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 24px;
+      align-items: center;
+      padding: 22px 24px 20px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(0, 246, 255, 0.04), rgba(255, 45, 209, 0.03));
+    }
+
+    .photo {
+      border: 1px solid rgba(0, 246, 255, 0.7);
+      box-shadow:
+        0 0 10px rgba(0, 246, 255, 0.3),
+        inset 0 0 20px rgba(0, 246, 255, 0.08);
+      padding: 6px;
+      background: #050311;
+    }
+
+    .photo img {
+      width: 100%;
+      display: block;
+      filter: contrast(1.07) saturate(1.05);
+    }
+
+    h1, h2 {
+      font-family: "Orbitron", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: var(--neon-cyan);
+      text-shadow:
+        0 0 12px rgba(0, 246, 255, 0.5),
+        2px 0 0 rgba(255, 45, 209, 0.35);
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      padding: 5px 10px;
+      border: 1px solid rgba(0, 246, 255, 0.5);
+      color: var(--neon-cyan);
+      background: rgba(0, 246, 255, 0.06);
+      font-size: 17px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 16px;
+      padding: 16px;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      background: rgba(7, 4, 14, 0.42);
+      padding: 14px;
+      position: relative;
+    }
+
+    .panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      border: 1px solid rgba(255, 45, 209, 0.13);
+    }
+
+    .panel h2 {
+      font-size: 16px;
+      color: var(--neon-pink);
+      margin-bottom: 10px;
+    }
+
+    .line {
+      margin-bottom: 6px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .item {
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed rgba(138, 162, 200, 0.28);
+    }
+
+    .item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .role {
+      color: var(--neon-cyan);
+      font-family: "Orbitron", sans-serif;
+      font-size: 24px;
+      margin-bottom: 2px;
+    }
+
+    .company {
+      color: var(--neon-purple);
+      margin-bottom: 6px;
+      font-size: 19px;
+    }
+
+    ul {
+      margin-left: 22px;
+      margin-top: 4px;
+    }
+
+    li {
+      margin-bottom: 3px;
+    }
+
+    a {
+      color: var(--warning);
+      text-decoration: none;
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      padding: 10px 16px 14px;
+      text-align: center;
+      font-family: "Orbitron", sans-serif;
+      font-size: 13px;
+      letter-spacing: 1px;
+      color: var(--neon-pink);
+      text-shadow: 0 0 8px rgba(255, 45, 209, 0.45);
+    }
+
+    @media (max-width: 920px) {
+      .header {
+        grid-template-columns: 1fr;
+      }
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="noise">
+  <main class="container">
+    <div class="topline"></div>
+
+    <header class="header">
+      <div class="photo">
+        <img src="file:///C:/Users/Borys/.cursor/projects/c-emsoft-main/assets/c__Users_Borys_AppData_Roaming_Cursor_User_workspaceStorage_db1729875a0e4b940ebad26331f91741_images_image-98e76d9c-ca28-4fca-8169-ed36702dc7e7.png" alt="Dmytro Borysov" />
+      </div>
+      <div>
+        <h1>Dmytro Borysov</h1>
+        <div class="subtitle">Senior Software Engineer (Full Stack)</div>
+        <div class="chips">
+          <span class="chip">C/C++</span>
+          <span class="chip">C#</span>
+          <span class="chip">Node.js</span>
+          <span class="chip">Angular</span>
+          <span class="chip">React</span>
+          <span class="chip">.NET</span>
+          <span class="chip">MongoDB</span>
+          <span class="chip">PostgreSQL</span>
+          <span class="chip">CAD</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="layout">
+      <aside class="panel">
+        <h2>Contacts</h2>
+        <p class="line">Email: <a href="mailto:borysovdmytrocnua@gmail.com">borysovdmytrocnua@gmail.com</a></p>
+        <p class="line">Phone: <a href="tel:+380933402671">+380933402671</a></p>
+        <p class="line">Location: Ukraine, Chernihiv</p>
+        <p class="line">LinkedIn: <a href="https://www.linkedin.com/in/dmytro-borysov-318507139/" target="_blank" rel="noreferrer">profile</a></p>
+        <p class="line">Languages: Russian, Ukrainian, English (B1)</p>
+
+        <h2 style="margin-top: 16px;">About</h2>
+        <p class="line muted">Result-oriented software engineer with strong ownership and attention to client requirements. Focused on clear architecture, maintainable code, and practical problem solving.</p>
+
+        <h2 style="margin-top: 16px;">Education</h2>
+        <p class="line">Chernihiv National Technical University</p>
+        <p class="line muted">Bachelor of Computer Science (2013 - 2017)</p>
+      </aside>
+
+      <section class="panel">
+        <h2>Experience</h2>
+
+        <article class="item">
+          <div class="role">Senior Software Engineer</div>
+          <div class="company">Open Design Alliance | 01.2016 - Present</div>
+          <ul>
+            <li>Developed cloud CAD platform services and API infrastructure.</li>
+            <li>Built cloud DWG editor capabilities for browser workflows.</li>
+            <li>Ported C++ code to WebAssembly for high-performance web execution.</li>
+            <li>Contributed to CAD web viewer with plugin-based architecture.</li>
+            <li>Stack: C++, C#, JavaScript/TypeScript, Node.js, Angular/React, MongoDB.</li>
+          </ul>
+        </article>
+
+        <article class="item">
+          <div class="role">Software Engineer</div>
+          <div class="company">gestureit (Part-time) | Feb 2023 - Sep 2025 | Remote</div>
+          <p class="line"><strong>Project:</strong> Gestureit CAD (Mobile CAD Solution)</p>
+          <ul>
+            <li>Built Android CAD app with editing UX that avoids complex command memorization.</li>
+            <li>Implemented full DWG/DXF lifecycle support: viewing, editing, and export.</li>
+            <li>Developed advanced editing for 3D lines, snapping, and layer management.</li>
+            <li>Created a PDF workflow module for direct CAD annotation from email attachments.</li>
+            <li>Implemented measurement engine for distances, angles, perimeters, areas, and isometric cases.</li>
+          </ul>
+        </article>
+
+        <article class="item">
+          <div class="role">Technical Lead</div>
+          <div class="company">Upwork (Part-time) | Jan 2021 - Feb 2022 | Remote</div>
+          <ul>
+            <li>Led social network analysis project implementation.</li>
+            <li>Drove architecture and delivery decisions for Angular-based frontend solutions.</li>
+            <li>Coordinated technical direction and team execution as project lead.</li>
+          </ul>
+        </article>
+
+        <article class="item">
+          <div class="role">Software Engineer</div>
+          <div class="company">Regmik | 06.2015 - 01.2016</div>
+          <ul>
+            <li>Developed data acquisition and sensor management systems.</li>
+            <li>Built server-side data collection and processing services.</li>
+            <li>Created mobile client components for smart home system scenarios.</li>
+            <li>Stack: C++, Qt, Node.js, Express, PostgreSQL, MySQL.</li>
+          </ul>
+        </article>
+      </section>
+    </section>
+
+    <footer class="footer">Neon Mode: Enabled</footer>
+  </main>
+</body>
+</html>
